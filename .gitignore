@@ -12,7 +12,6 @@ pyvenv.cfg
 
 # Django
 /staticfiles/
-media/
 
 # OS
 .DS_Store
