@@ -5,3 +5,5 @@ mysqlclient>=2.2         # for MySQL in production (comment out if using SQLite)
 gunicorn>=21.2           # for production deployment
 python-decouple>=3.8     # for environment variable management
 Pillow>=10.0.0           # for image processing
+whitenoise[brotli]>=6.0.0 # for serving static files in production
+whitenoise[brotli]>=6.0.0 # for serving static files in production
