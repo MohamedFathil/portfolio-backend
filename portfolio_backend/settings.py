@@ -3,12 +3,13 @@ Django settings for Mohamed Fathil's Portfolio Backend
 """
 
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-change-this-in-production-use-env-variable'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-development-key')
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', True) == 'True'
 
 ALLOWED_HOSTS = ['*']
 
