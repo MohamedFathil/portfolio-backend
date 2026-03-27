@@ -62,7 +62,7 @@ class Certification(models.Model):
     icon = models.CharField(max_length=10, default='🎓')
     url = models.URLField(blank=True)
     order = models.PositiveIntegerField(default=0)
-    image = models.ImageField(upload_to='certications/', blank=True) #new
+    image = models.ImageField(upload_to='certifications/', blank=True) #new
 
     class Meta:
         ordering = ['order']

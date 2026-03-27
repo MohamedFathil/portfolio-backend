@@ -83,7 +83,7 @@ class CertificationListView(APIView):
 
     def get(self, request):
         certs = Certification.objects.all()
-        serializer = CertificationSerializer(certs, many=True)
+        serializer = CertificationSerializer(certs, many=True, context={'request': request})
         return Response(serializer.data)
 
 

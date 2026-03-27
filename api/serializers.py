@@ -47,6 +47,15 @@ class SkillsByCategorySerializer(serializers.Serializer):
 
 
 class CertificationSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
     class Meta:
         model = Certification
         fields = ['id', 'title', 'issuer', 'icon', 'url', 'order', 'image']
+
+    def get_image(self, obj):
+        if obj.image:
+            request = self.context.get('request')
+            if request:
+                return request.build_absolute_uri(obj.image.url)
+        return None
