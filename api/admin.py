@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from .models import ContactMessage, Project, Skill, Certification
 
 
@@ -36,6 +37,13 @@ class SkillAdmin(admin.ModelAdmin):
 
 @admin.register(Certification)
 class CertificationAdmin(admin.ModelAdmin):
-    list_display = ['title', 'issuer', 'icon', 'order']
+    list_display = ['title', 'issuer', 'icon', 'order', 'image_tag']
     list_editable = ['order']
     search_fields = ['title', 'issuer']
+    readonly_fields = ['image_tag']
+
+    def image_tag(self, obj):
+        if obj.image:
+            return format_html(f'<img src="{obj.image.url}" style="max-height: 50px; max-width: 100px;" />')
+        return "No Image"
+    image_tag.short_description = 'Image'

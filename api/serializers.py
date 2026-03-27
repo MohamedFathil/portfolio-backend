@@ -49,4 +49,4 @@ class SkillsByCategorySerializer(serializers.Serializer):
 class CertificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Certification
-        fields = ['id', 'title', 'issuer', 'icon', 'url', 'order']
+        fields = ['id', 'title', 'issuer', 'icon', 'url', 'order', 'image']
